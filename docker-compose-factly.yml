@@ -1,0 +1,13 @@
+version: "3"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.factly
+    container_name: iframely
+    restart: always
+    ports:
+      - "8061:8061"
+    volumes:
+      # Mount the config.local.js file from host to container
+      - ./config.local.js:/iframely/config.local.js:ro
