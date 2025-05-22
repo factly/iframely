@@ -31,10 +31,8 @@ jobs:
           tags: |
             type=ref,event=tag
             type=match,pattern=v(.*),group=1
-            type=match,pattern=v([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+),group=1.2.3
-            type=match,pattern=v([0-9]+)\.([0-9]+),group=1.2
-            type=match,pattern=v([0-9]+),group=1
-            latest
+            type=raw,value={{tag}}
+            type=raw,value=latest
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
